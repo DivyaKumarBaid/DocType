@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+.heading{
+    background-image: linear-gradient(60deg,#ff3a7c,#741eff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
