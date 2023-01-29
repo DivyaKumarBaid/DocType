@@ -57,7 +57,7 @@ export default function FileUpload() {
             {contextValues.selectedFile && <SideBar />}
             {contextValues.selectedFile ?
                 <div className="w-full py-8">
-                    <div className='p-2 bg-red-500 shadow-sm rounded-md text-white fixed top-5 right-5' onClick={() => contextValues.setFile(null)}><MdClose className='text-white text-xl' /></div>
+                    <div className='p-2 bg-red-500 shadow-sm rounded-md text-white fixed top-5 right-5 cursor-pointer' onClick={() => contextValues.setFile(null)}><MdClose className='text-white text-xl' /></div>
                     <div className="flex justify-center items-center">
                         <div id='singlePageExport'>
                             <Document file={contextValues.selectedFile} onLoadSuccess={onDocumentLoadSuccess} className="flex justify-center" id="doc">
@@ -77,8 +77,8 @@ export default function FileUpload() {
                         {contextValues.currPage < contextValues.numPages && <button onClick={() => changePage(1)} className='px-4 py-2 bg-gray-700 rounded-md text-white'>{'>'}</button>}
                     </div>
                 </div>
-                : <div className="w-full py-8 flex items-center justify-center" {...getRootProps()}>
-                    <div className="flex w-1/2 justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
+                : <div className="w-full min-h-[80vh] py-8 flex items-center justify-center" {...getRootProps()}>
+                    <div className="flex w-[40vw] h-[40vh] justify-center items-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
                         <div className="space-y-1 text-center">
                             <svg
                                 className="mx-auto h-12 w-12 text-gray-400"

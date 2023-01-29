@@ -5,7 +5,6 @@ import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import { fabric } from 'fabric';
 import { Dialog, Transition } from '@headlessui/react'
-import ExportPDF from './ExportPDF'
 import { useButtons } from '../context/CanvasContext';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';

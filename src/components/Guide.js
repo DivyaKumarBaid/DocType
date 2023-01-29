@@ -1,5 +1,4 @@
 import React from "react";
-import { AiFillGithub } from "react-icons/ai";
 
 export default function Guide() {
     return (
@@ -25,3 +24,5 @@ export default function Guide() {
         </div>
     )
 }
+
+

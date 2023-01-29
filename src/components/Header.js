@@ -1,6 +1,5 @@
 import { AiFillGithub } from "react-icons/ai";
 import { TiInfoLarge } from "react-icons/ti";
-import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
