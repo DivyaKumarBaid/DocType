@@ -24,6 +24,11 @@ export const CanvasProvider = ({ children }) => {
     const [edits, setEdits] = React.useState({});
     // uploaded image
 
+    React.useEffect(() => {
+        if (canvas.isDrawingMode)
+            canvas.freeDrawingBrush.color = color;
+    }, [color])
+
     const downloadPage = () => {
         setExporting(true);
         const doc = document.querySelector('#singlePageExport');
@@ -121,6 +126,8 @@ export const CanvasProvider = ({ children }) => {
 
     const toggleDraw = canvi => {
         canvi.isDrawingMode = !canvi.isDrawingMode;
+        var brush = canvas.freeDrawingBrush;
+        brush.color = color;
     }
     // add functions here
     const exportPdf = () => {
