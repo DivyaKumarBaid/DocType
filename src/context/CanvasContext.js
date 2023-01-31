@@ -11,6 +11,8 @@ export const useButtons = () => {
 
 export const CanvasProvider = ({ children }) => {
     // file
+    const [theme, setTheme] = React.useState(false);
+    //  false -> light mode , true -> dark mode
     const [numPages, setNumPages] = React.useState(null);
     const [currPage, setCurrPage] = React.useState(1);
     const [selectedFile, setFile] = React.useState(null);
@@ -134,8 +136,9 @@ export const CanvasProvider = ({ children }) => {
         setExportPages((prev) => ([...prev, exportPage.current]));
         console.log(exportPages)
     }
+
     return (
-        <funButtons.Provider value={{ canvas, setCanvas, addRect, addCircle, addText, addImage, numPages, setNumPages, currPage, setCurrPage, selectedFile, setFile, addHighlight, toggleDraw, color, setColor, edits, setEdits, addNote, deleteBtn, exportPage, exportPdf, downloadPage, isExporting }}>
+        <funButtons.Provider value={{ canvas, setCanvas, addRect, addCircle, addText, addImage, numPages, setNumPages, currPage, setCurrPage, selectedFile, setFile, addHighlight, toggleDraw, color, setColor, edits, setEdits, addNote, deleteBtn, exportPage, exportPdf, downloadPage, isExporting, theme, setTheme }}>
             {children}
         </funButtons.Provider>
     )

@@ -53,20 +53,24 @@ export default function FileUpload() {
     }, [])
 
     return (
-        <div>
+        <div className={`min-h-[90vh] ${contextValues.theme && "text-white bg-[rgb(20,20,20)]"}`}>
             {contextValues.selectedFile && <SideBar />}
             {contextValues.selectedFile ?
-                <div className="w-full py-8">
-                    <div className='p-2 bg-red-500 shadow-sm rounded-md text-white fixed top-5 right-5 cursor-pointer' onClick={() => contextValues.setFile(null)}><MdClose className='text-white text-xl' /></div>
-                    <div className="flex justify-center items-center">
-                        <div id='singlePageExport'>
+                <div className={`w-full py-8 ${contextValues.theme ? "text-white bg-[rgb(20,20,20)]" : "text-black bg-white"}`}>
+                    <div className='p-2 bg-red-500 shadow-sm rounded-md text-white fixed top-5 right-5 cursor-pointer' onClick={() => contextValues.setFile(null)}>
+                        <MdClose className='text-white text-xl' />
+                    </div>
+
+                    <div className={`flex justify-center items-center ${contextValues.theme ? "text-white bg-[rgb(20,20,20)]" : "text-black bg-white"}`}>
+
+                        <div id={`singlePageExport ${contextValues.theme ? "text-white bg-[rgb(20,20,20)]" : "text-black bg-white"}`}>
                             <Document file={contextValues.selectedFile} onLoadSuccess={onDocumentLoadSuccess} className="flex justify-center" id="doc">
 
                                 <div className='absolute z-[9]'>
                                     <canvas id="canvas" />
                                 </div>
 
-                                <Page pageNumber={contextValues.currPage} id="docPage" className={`px-4 py-2 ${!contextValues.isExporting && "shadow-lg border"}`} width={595} height={842} />
+                                <Page pageNumber={contextValues.currPage} id="docPage" className={`px-4 py-4 ${!contextValues.isExporting && contextValues.theme ? "bg-[rgb(25,25,25)] shadow-[0px_0px_16px_rgb(0,0,0)] border-none" : "shadow-lg border"}`} width={595} height={842} />
 
                             </Document>
                         </div>
@@ -81,7 +85,7 @@ export default function FileUpload() {
                     <div className="flex w-[40vw] h-[40vh] justify-center items-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
                         <div className="space-y-1 text-center">
                             <svg
-                                className="mx-auto h-12 w-12 text-gray-400"
+                                className="mx-auto h-16 w-16 text-gray-400"
                                 stroke="currentColor"
                                 fill="none"
                                 viewBox="0 0 48 48"
@@ -94,9 +98,9 @@ export default function FileUpload() {
                                     strokeLinejoin="round"
                                 />
                             </svg>
-                            <div className="flex text-sm text-gray-600">
+                            <div className={`flex text-md ${contextValues.theme ? "text-gray-400" : "text-gray-600"}`} >
                                 <label
-                                    className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
+                                    className="relative cursor-pointer rounded-md bg-transparent font-medium text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
                                 >
                                     <span>Upload a file</span>
                                 </label>
@@ -105,7 +109,7 @@ export default function FileUpload() {
                                 />
                                 <p className="pl-1">or drag and drop</p>
                             </div>
-                            <p className="text-xs text-gray-500">PDF</p>
+                            <p className="text-sm">PDF</p>
                         </div>
                     </div>
                 </div>}

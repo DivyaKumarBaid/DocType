@@ -8,3 +8,25 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+/* scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(26, 26, 26);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius:8px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+      background: #888;
+  }  

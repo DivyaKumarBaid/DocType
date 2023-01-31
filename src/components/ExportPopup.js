@@ -113,7 +113,7 @@ export default function ExportPopup(props) {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all">
+                <Dialog.Panel className={`my-6 relative transform overflow-hidden rounded-lg  px-4 pt-5 pb-4 text-left shadow-xl transition-all ${contextValues.theme ? "bg-[rgb(26,26,26)] text-white" : "bg-white"}`}>
                   <Backdrop
                     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                     open={isExporting}
@@ -133,7 +133,7 @@ export default function ExportPopup(props) {
                                     <canvas id="canvas-export" />
                                   </div>
 
-                                  <Page pageNumber={currPage} id="docPage" className={`px-4 py-2 ${!isExporting && 'shadow-lg border'}`} width={595} height={842} />
+                                  <Page pageNumber={currPage} id="docPage" className={`px-4 py-2 ${!isExporting && 'shadow-lg border'} ${contextValues.theme && "border-[rgba(36,36,36,0)]"}`} width={595} height={842} />
 
                                 </Document>
                               </div>

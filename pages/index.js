@@ -1,10 +1,9 @@
 import FileUpload from "../src/components/FileUpload";
-import { CanvasProvider } from "../src/context/CanvasContext";
 import Head from 'next/head'
 
 export default function Home() {
   return (
-    <CanvasProvider>
+    <div>
       <Head>
         <title>!DocType</title>
         <meta
@@ -14,6 +13,6 @@ export default function Home() {
         <link rel="icon" href="./logo.png" />
       </Head>
       <FileUpload />
-    </CanvasProvider>
+    </div>
   );
 }
