@@ -1,34 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h3 align="center"><img src="https://i.postimg.cc/xT6B0t4y/Asset-49.png" width="500"></a></h3>
 
-## Getting Started
+<p align="center"> 
+  
+<br>
+<h1>DocType</h1><h4>Hussle Free PDF editor !<h4>
+<br>
 
-First, run the development server:
+[![GitHub license](https://img.shields.io/github/license/DivyaKumarBaid/DocType?color=e63946&logo=Big%20Cartel&logoColor=white&style=for-the-badge)](https://github.com/DivyaKumarBaid/DocType/blob/main/LICENSE) &nbsp; [![GitHub forks](https://img.shields.io/github/forks/DivyaKumarBaid/DocType?logo=JFrog%20Bintray&logoColor=white&style=for-the-badge)](https://github.com/DivyaKumarBaid/DocType/network) &nbsp; [![GitHub stars](https://img.shields.io/github/stars/DivyaKumarBaid/DocType?color=%23ffcb77&logo=Apache%20Spark&logoColor=yellow&style=for-the-badge)](https://github.com/DivyaKumarBaid/DocType/stargazers)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Description
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+A Hussle free solution to edit PDF. Easier to work with, this PDF editor is based on FabricJs built on React-pdf which would be a lot smoother working with day to day PDF. Download the edited PDF in an instant. Be it multipage, single page just edit and download the whole PDF or even a single page.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Features
 
-## Learn More
+<span align = "center">
 
-To learn more about Next.js, take a look at the following resources:
+| Sticky Notes       | Add a sticky note to your pdf to know important topic  |
+| ------------------ | ------------------------------------------------------ |
+| Shape Tool         | Add elementry shapes such as reactangle and circle.    |
+| Text Box           | Add a TextBox in your PDF and take down extra notes.   |
+| Image              | Add an image to the PDF.                               |
+| Pencil             | Lets you free draw on PDF.                             |
+| Highlighter        | Highlight anything in your PDF.                        |
+| Delete             | Delete the selected edited element.                    |
+| Clear Editor       | Restor/Delete the whole edited part.                   |
+| Download Page      | Download the current page with edited elements.        |
+| Download PDF       | Download the while PDF with edited elements.           |
+| Color Picker       | Pick a color for the included shapes and lines.        |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+</span>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Forking and Hosting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Fork the repository and host it in netlify.
+Currently I am having error while deploying the repository on vercel due to canvas issue with nextjs
+To run it locally, clone the repository and run ```npm i```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+For any other Questions raise an issue and I will try to solve you problem.
