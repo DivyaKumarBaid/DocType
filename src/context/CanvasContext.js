@@ -17,6 +17,8 @@ export const CanvasProvider = ({ children }) => {
     const [currPage, setCurrPage] = React.useState(1);
     const [selectedFile, setFile] = React.useState(null);
     const [color, setColor] = React.useState("#f4a261");
+    const [borderColor, setBorderColor] = React.useState("#f4a261");
+    const [strokeWidth, setStrokeWidth] = React.useState(1);
     const [canvas, setCanvas] = React.useState('');
     const [isExporting, setExporting] = React.useState(false);
 
@@ -27,9 +29,38 @@ export const CanvasProvider = ({ children }) => {
     // uploaded image
 
     React.useEffect(() => {
-        if (canvas.isDrawingMode)
-            canvas.freeDrawingBrush.color = color;
+        if (canvas != '') {
+            var activeObject = canvas.getActiveObject();
+            if (activeObject) {
+                activeObject.set("fill", color)
+                canvas.renderAll()
+            }
+        }
     }, [color])
+
+    React.useEffect(() => {
+        if (canvas.isDrawingMode)
+            canvas.freeDrawingBrush.color = borderColor;
+        if (canvas != '') {
+            var activeObject = canvas.getActiveObject();
+            if (activeObject) {
+                activeObject.set("stroke", borderColor)
+                canvas.renderAll()
+            }
+        }
+    }, [borderColor])
+
+    React.useEffect(() => {
+        if (canvas.isDrawingMode)
+            canvas.freeDrawingBrush.width = strokeWidth;
+        if (canvas != '') {
+            var activeObject = canvas.getActiveObject();
+            if (activeObject) {
+                activeObject.set("strokeWidth", strokeWidth)
+                canvas.renderAll()
+            }
+        }
+    }, [strokeWidth])
 
     const downloadPage = () => {
         setExporting(true);
@@ -81,6 +112,8 @@ export const CanvasProvider = ({ children }) => {
             height: 180,
             width: 200,
             fill: color,
+            stroke: borderColor,
+            strokeWidth: strokeWidth,
             cornerStyle: 'circle',
             editable: true
         });
@@ -94,7 +127,9 @@ export const CanvasProvider = ({ children }) => {
             radius: 100,
             fill: color,
             cornerStyle: 'circle',
-            editable: true
+            editable: true,
+            stroke: borderColor,
+            strokeWidth: 2,
         });
         canvi.add(rect);
         canvi.renderAll();
@@ -129,8 +164,10 @@ export const CanvasProvider = ({ children }) => {
     const toggleDraw = canvi => {
         canvi.isDrawingMode = !canvi.isDrawingMode;
         var brush = canvas.freeDrawingBrush;
-        brush.color = color;
+        brush.color = borderColor;
+        brush.strokeWidth = strokeWidth;
     }
+
     // add functions here
     const exportPdf = () => {
         setExportPages((prev) => ([...prev, exportPage.current]));
@@ -138,7 +175,7 @@ export const CanvasProvider = ({ children }) => {
     }
 
     return (
-        <funButtons.Provider value={{ canvas, setCanvas, addRect, addCircle, addText, addImage, numPages, setNumPages, currPage, setCurrPage, selectedFile, setFile, addHighlight, toggleDraw, color, setColor, edits, setEdits, addNote, deleteBtn, exportPage, exportPdf, downloadPage, isExporting, theme, setTheme }}>
+        <funButtons.Provider value={{ canvas, setCanvas, addRect, addCircle, addText, addImage, numPages, setNumPages, currPage, setCurrPage, selectedFile, setFile, addHighlight, toggleDraw, color, setColor, edits, setEdits, addNote, deleteBtn, exportPage, exportPdf, downloadPage, isExporting, theme, setTheme, borderColor, setBorderColor, strokeWidth, setStrokeWidth }}>
             {children}
         </funButtons.Provider>
     )
