@@ -70,7 +70,7 @@ export default function FileUpload() {
                                     <canvas id="canvas" />
                                 </div>
 
-                                <Page pageNumber={contextValues.currPage} id="docPage" className={`px-4 py-4 ${!contextValues.isExporting && contextValues.theme ? "bg-[rgb(25,25,25)] shadow-[0px_0px_16px_rgb(0,0,0)] border-none" : "shadow-lg border"}`} width={595} height={842} />
+                                <Page pageNumber={contextValues.currPage} id="docPage" className={`px-4 py-4 ${!contextValues.isExporting && contextValues.theme ? "bg-[rgb(25,25,25)] shadow-[0px_0px_16px_rgb(0,0,0)] border-none" : "shadow-lg border"}`} size="A4" />
 
                             </Document>
                         </div>

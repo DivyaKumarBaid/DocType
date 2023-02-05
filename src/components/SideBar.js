@@ -132,6 +132,7 @@ export default function SideBar() {
                     }}
                 >
                     <SketchPicker
+
                         color={contextValues.color}
                         onChangeComplete={col => contextValues.setColor(col.hex)}
                     />
@@ -151,8 +152,9 @@ export default function SideBar() {
                         vertical: 'bottom',
                         horizontal: 'left',
                     }}
+
                 >
-                    <div className='min-w-[20vw] min-h-[8vh] flex flex-col items-start justify-center p-8 gap-2'>
+                    <div className={`min-w-[20vw] min-h-[8vh] flex flex-col items-start justify-center p-8 gap-2 ${contextValues.theme && "bg-[rgba(26,26,26)] text-white"}`}>
                         <div>Stoke Width</div>
                         <Slider
                             aria-label="Small steps"
