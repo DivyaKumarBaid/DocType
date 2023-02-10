@@ -9,6 +9,7 @@ import { useButtons } from '../context/CanvasContext';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { Backdrop, CircularProgress } from '@mui/material';
+import Loader from '../../pages/Loader';
 
 export default function ExportPopup(props) {
 
@@ -23,6 +24,7 @@ export default function ExportPopup(props) {
       contextValues.edits[currPage] && exportCanvas.loadFromJSON(contextValues.edits[currPage]);
     }
   }, [contextValues.edits, currPage, exportCanvas])
+
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -118,7 +120,9 @@ export default function ExportPopup(props) {
                     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                     open={isExporting}
                   >
-                    <CircularProgress color="inherit" />
+                    <div className="fixed top-[25%]">
+                      <Loader />
+                    </div>
                   </Backdrop>
                   <div>
                     <div className="mt-3 text-center sm:mt-5">

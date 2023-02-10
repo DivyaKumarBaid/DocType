@@ -12,8 +12,8 @@ import { MdClose } from 'react-icons/md';
 
 
 export default function FileUpload() {
+
     const contextValues = useButtons();
-    const [isExporting, setExporting] = React.useState(false);
 
     const { getRootProps, getInputProps } = useDropzone({
         onDrop: files => contextValues.setFile(files[0])
@@ -66,11 +66,12 @@ export default function FileUpload() {
                         <div id={`singlePageExport ${contextValues.theme ? "text-white bg-[rgb(20,20,20)]" : "text-black bg-white"}`}>
                             <Document file={contextValues.selectedFile} onLoadSuccess={onDocumentLoadSuccess} className="flex justify-center" id="doc">
 
-                                <div className='absolute z-[9]'>
+                                <div className='absolute z-[9] px-4 py-4'>
                                     <canvas id="canvas" />
                                 </div>
-
-                                <Page pageNumber={contextValues.currPage} id="docPage" className={`px-4 py-4 ${!contextValues.isExporting && contextValues.theme ? "bg-[rgb(25,25,25)] shadow-[0px_0px_16px_rgb(0,0,0)] border-none" : "shadow-lg border"}`} size="A4" />
+                                <div className={`px-4 py-4 ${!contextValues.isExporting && contextValues.theme ? "bg-[rgb(25,25,25)] shadow-[0px_0px_16px_rgb(0,0,0)] border-none" : "shadow-lg border"}`}>
+                                    <Page pageNumber={contextValues.currPage} id="docPage" width={595} height={842} />
+                                </div>
 
                             </Document>
                         </div>
