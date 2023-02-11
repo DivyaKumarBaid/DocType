@@ -9,7 +9,7 @@ import { useButtons } from '../context/CanvasContext';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { Backdrop, CircularProgress } from '@mui/material';
-import Loader from '../../pages/Loader';
+import Loader from './Loader';
 
 export default function ExportPopup(props) {
 
