@@ -63,7 +63,7 @@ export default function FileUpload() {
 
                     <div className={`flex justify-center items-center ${contextValues.theme ? "text-white bg-[rgb(20,20,20)]" : "text-black bg-white"}`}>
 
-                        <div id={`singlePageExport ${contextValues.theme ? "text-white bg-[rgb(20,20,20)]" : "text-black bg-white"}`}>
+                        <div id="singlePageExport" className={`${contextValues.theme ? "text-white bg-[rgb(20,20,20)]" : "text-black bg-white"}`}>
                             <Document file={contextValues.selectedFile} onLoadSuccess={onDocumentLoadSuccess} className="flex justify-center" id="doc">
 
                                 <div className='absolute z-[9] px-4 py-4'>
