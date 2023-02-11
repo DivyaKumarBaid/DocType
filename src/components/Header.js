@@ -9,7 +9,7 @@ export default function Header() {
   const contextValues = useButtons();
 
   return (
-    <div className={`md:flex h-[10vh] md:items-center md:justify-between px-6 py-2 shadow-[0px_0px_16px_rgba(0,0,0,0.2)]  border-b ${contextValues.theme && "border-b-[rgb(40,40,40,0.5)] bg-[rgb(25,25,25)] shadow-[0px_0px_16px_rgba(0,0,0,1)]"}`}>
+    <div className={`md:flex h-[10vh] md:items-center md:justify-between px-6 py-2 z-[1200] fixed w-[100%]`}>
       <Link href="/">
         <img src={contextValues.theme ? "./darkNavLogo.png" : "./lightNavLogo.png"} className="ml-8" width={120} alt="" /></Link>
       <div className="flex justify-between gap-10 items-center mr-16">
