@@ -1,7 +1,7 @@
 import React from 'react'
 import { CgFormatText } from 'react-icons/cg'
 import { TbBookDownload } from 'react-icons/tb'
-import { BiImageAdd } from 'react-icons/bi'
+import { BiHide, BiImageAdd, BiShow } from 'react-icons/bi'
 import { BsBorderWidth, BsCircle, BsSquare } from 'react-icons/bs'
 import { AiOutlineClear, AiOutlineDelete, AiOutlineHighlight } from 'react-icons/ai'
 import { HiPencil } from 'react-icons/hi'
@@ -132,7 +132,6 @@ export default function SideBar() {
                     }}
                 >
                     <SketchPicker
-
                         color={contextValues.color}
                         onChangeComplete={col => contextValues.setColor(col.hex)}
                     />
@@ -167,6 +166,13 @@ export default function SideBar() {
                         />
                     </div>
                 </Popover>
+
+                <Tooltip title="Hide/unHide Canvas">
+                    <div className='cursor-pointer' onClick={() => contextValues.setHiddenCanvas(old => !old)}>
+                        {contextValues.hideCanvas ? <BiHide className='md:text-[1.8rem] text-[1.5rem] cursor-pointer' /> :
+                            <BiShow className='md:text-[1.8rem] text-[1.5rem] cursor-pointer' />}
+                    </div>
+                </Tooltip>
 
             </div>
         </div >

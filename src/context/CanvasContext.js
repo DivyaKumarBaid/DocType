@@ -21,12 +21,18 @@ export const CanvasProvider = ({ children }) => {
     const [strokeWidth, setStrokeWidth] = React.useState(1);
     const [canvas, setCanvas] = React.useState('');
     const [isExporting, setExporting] = React.useState(false);
+    const [hideCanvas, setHiddenCanvas] = React.useState(false);
 
     const exportPage = useRef(null);
     const [exportPages, setExportPages] = React.useState([]);
     // canvas edits
     const [edits, setEdits] = React.useState({});
     // uploaded image
+
+    React.useEffect(() => {
+        if (document.getElementById("canvasWrapper"))
+            document.getElementById("canvasWrapper").style.visibility = document.getElementById("canvasWrapper").style.visibility == "hidden" ? "visible" : "hidden";
+    }, [hideCanvas])
 
     React.useEffect(() => {
         if (canvas != '') {
@@ -175,7 +181,7 @@ export const CanvasProvider = ({ children }) => {
     }
 
     return (
-        <funButtons.Provider value={{ canvas, setCanvas, addRect, addCircle, addText, addImage, numPages, setNumPages, currPage, setCurrPage, selectedFile, setFile, addHighlight, toggleDraw, color, setColor, edits, setEdits, addNote, deleteBtn, exportPage, exportPdf, downloadPage, isExporting, theme, setTheme, borderColor, setBorderColor, strokeWidth, setStrokeWidth }}>
+        <funButtons.Provider value={{ canvas, setCanvas, addRect, addCircle, addText, addImage, numPages, setNumPages, currPage, setCurrPage, selectedFile, setFile, addHighlight, toggleDraw, color, setColor, edits, setEdits, addNote, deleteBtn, exportPage, exportPdf, downloadPage, isExporting, theme, setTheme, borderColor, setBorderColor, strokeWidth, setStrokeWidth, hideCanvas, setHiddenCanvas }}>
             {children}
         </funButtons.Provider>
     )

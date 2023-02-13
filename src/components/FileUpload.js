@@ -84,7 +84,7 @@ export default function FileUpload() {
                             }
                             <Document file={contextValues.selectedFile} onLoadSuccess={onDocumentLoadSuccess} className="flex justify-center" id="doc">
 
-                                <div className='absolute z-[9] px-4 py-4'>
+                                <div className='absolute z-[9] px-4 py-4' id="canvasWrapper" style={{ visibility: "visible" }}>
                                     <canvas id="canvas" />
                                 </div>
                                 <div className={`px-4 py-4 ${!contextValues.isExporting && contextValues.theme ? "bg-[rgb(25,25,25)] shadow-[0px_0px_16px_rgb(0,0,0)] border-none" : "shadow-lg border"}`}>
