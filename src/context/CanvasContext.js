@@ -2,12 +2,19 @@ import React, { useRef } from 'react'
 import { fabric } from 'fabric'
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
+import { Roboto } from '@next/font/google'
 
 const funButtons = React.createContext()
 
 export const useButtons = () => {
     return React.useContext(funButtons)
 }
+
+const roboto = Roboto({
+    weight: ['400', '700'],
+    style: ['normal', 'italic'],
+    subsets: ['latin'],
+})
 
 export const CanvasProvider = ({ children }) => {
     // file
@@ -16,7 +23,7 @@ export const CanvasProvider = ({ children }) => {
     const [numPages, setNumPages] = React.useState(null);
     const [currPage, setCurrPage] = React.useState(1);
     const [selectedFile, setFile] = React.useState(null);
-    const [color, setColor] = React.useState("#f4a261");
+    const [color, setColor] = React.useState("#000");
     const [borderColor, setBorderColor] = React.useState("#f4a261");
     const [strokeWidth, setStrokeWidth] = React.useState(1);
     const [canvas, setCanvas] = React.useState('');
@@ -161,7 +168,8 @@ export const CanvasProvider = ({ children }) => {
         const text = new fabric.Textbox("Type Here ...", {
             editable: true,
         });
-        text.set({ fill: color })
+        // text.set({ fill: color })
+        text.set({ fill: color, fontFamily: roboto.style.fontFamily })
         canvi.add(text);
         canvi.renderAll();
         canvi.isDrawingMode = false
